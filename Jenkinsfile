@@ -5,6 +5,9 @@ pipeline {
             steps {
                 echo "init"
                 script {
+                    sh "echo 'hola'"
+                }
+                script {
                     sh "docker build -t ${name-app} ."
                 }
                 script {
