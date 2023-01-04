@@ -6,6 +6,7 @@ pipeline {
                 echo "init"
                 script {
                     sh "echo 'hola'"
+                    sh "docker ps"
                 }
                 script {
                     sh "docker build -t ${name-app} ."
