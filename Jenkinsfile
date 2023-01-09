@@ -9,6 +9,7 @@ pipeline {
                 sh "docker tag pruebaDespliegueReact vicarbar/react:${BUILD_NUMBER}"
                 sh "docker images | grep pruebaDespliegueReact"
                 sh "docker run -p 3000:3000 -d pruebaDespliegueReact"
+                sh "echo Ejercicio react"
             }
         }
         stage('docker push') {
