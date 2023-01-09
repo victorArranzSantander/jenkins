@@ -22,8 +22,11 @@
 FROM node:16-alpine 
 # Set the working directory to /app inside the container
 WORKDIR /app
+# Installing dependencies
+COPY ./Users/hubsantander/ejercicios/react/weather/package.json /app
+RUN npm install
 # Copy app files
-COPY /Users/hubsantander/ejercicios/react/weather .
+COPY ./Users/hubsantander/ejercicios/react/weather .
 # ==== BUILD =====
 # Install dependencies (npm ci makes sure the exact versions in the lockfile gets installed)
 RUN npm ci 
@@ -36,3 +39,4 @@ ENV NODE_ENV production
 EXPOSE 3000
 # Start the app
 CMD [ "npm", "start"]
+#CMD npm start
