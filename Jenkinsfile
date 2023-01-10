@@ -3,8 +3,8 @@ pipeline {
     stages {
         stage('docker build') {
             steps {
-                sh "docker stop $(docker ps -aq)"
-                sh "docker rm $(docker ps -aq)"
+                sh "docker stop \$(docker ps -aq)"
+                sh "docker rm \$(docker ps -aq)"
                 sh "docker ps"
                 sh "docker pull node:16-alpine"
                 sh "docker build -t pruebareact ."
