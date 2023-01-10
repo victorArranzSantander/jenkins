@@ -3,12 +3,13 @@ pipeline {
     stages {
         stage('docker build') {
             steps {
+                sh "docker rm $(docker ps -aq)"
                 sh "docker ps"
                 sh "docker pull node:16-alpine"
                 sh "docker build -t pruebareact ."
                 sh "docker tag pruebareact vicarbar/react:${BUILD_NUMBER}"
                 sh "docker images | grep pruebareact"
-                sh "docker run -d -p 3009:3009 pruebareact"
+                sh "docker run -d -p 3000:3000 pruebareact"
             }
         }
         stage('docker push') {

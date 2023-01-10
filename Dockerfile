@@ -50,6 +50,6 @@ COPY package.json /app
 
 RUN npm install
 COPY . /app
-EXPOSE 3009
+EXPOSE 3000
 CMD ["npm", "start"]
 
