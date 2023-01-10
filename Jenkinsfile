@@ -3,6 +3,7 @@ pipeline {
     stages {
         stage('docker build') {
             steps {
+                sj "docker stop $(docker ps -aq)"
                 sh "docker rm $(docker ps -aq)"
                 sh "docker ps"
                 sh "docker pull node:16-alpine"
