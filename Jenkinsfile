@@ -8,7 +8,7 @@ pipeline {
                 sh "docker build -t pruebareact ."
                 sh "docker tag pruebareact vicarbar/react:${BUILD_NUMBER}"
                 sh "docker images | grep pruebareact"
-                sh "docker run -d -it -p 3008:3008 pruebareact"
+                sh "docker run -d -p 3009:3009 pruebareact"
             }
         }
         stage('docker push') {
